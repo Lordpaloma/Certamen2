@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('equipos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',20);
+            $table->string('acronimo',4);
+            $table->string('entrenador', 20);
             $table->timestamps();
         });
     }

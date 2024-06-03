@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('campeonatos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',10);
+            $table->string('juego',10);
+            $table->string('pais',10);
             $table->timestamps();
         });
     }
