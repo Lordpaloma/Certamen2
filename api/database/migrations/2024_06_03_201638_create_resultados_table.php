@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campeonatos', function (Blueprint $table) {
+        Schema::create('resultados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',10);
-            $table->string('juego',10);
-            $table->string('pais',10);
-            $table->boolean('estado');
+            $table->unsignedBigInteger('equipo_id');
+            $table->unsignedBigInteger('partido_id');
+            $table->string('detalle');
+            $table->foreign('equipo_id')->references('id')->on('equipos');
+            $table->foreign('partido_id')->references('id')->on('partidos');
             #$table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campeonatos');
+        Schema::dropIfExists('resultados');
     }
 };
