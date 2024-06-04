@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Campeonato extends Model
 {
     use HasFactory;
+    protected $table = 'campeonatos';
+    public $timestamps = false;
 }
