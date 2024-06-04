@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('nombre',20);
             $table->string('apellido',20);
             $table->string('pais');
-            
+            $table->unsignedBigInteger('id_equipo');
+            $table->foreign('id_equipo')->references('id')->on('equipos');
             #$table->timestamps();
         });
     }

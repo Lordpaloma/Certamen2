@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre',20);
             $table->string('acronimo',4);
             $table->string('entrenador', 20);
-            $table->timestamps();
+            #$table->timestamps();
         });
     }
 

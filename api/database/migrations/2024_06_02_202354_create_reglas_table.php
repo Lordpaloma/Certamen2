@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('reglas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nombre',60);
+            $table->string('detalle',250);
+            $table->unsignedBigInteger('id_campeonato');
+            $table->foreign('id_campeonato')->references('id')->on('campeonatos');
+            #$table->timestamps();
         });
     }
 

@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('premios', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->tinyInteger('lugar');
+            $table->integer('monto');
+            $table->string('detalle',50);
+            $table->unsignedBigInteger('id_campeonatos');
+            $table->foreign('id_campeonatos')->references('id')->on('campeonatos');
+            #$table->timestamps();
         });
     }
 
