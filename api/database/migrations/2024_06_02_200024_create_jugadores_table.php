@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jugadores', function (Blueprint $table) {
-            $table->string('rut')->primary();
-            $table->string('nombre',20);
-            $table->string('apellido',20);
-            $table->string('pais');
+            $table->id();
+            $table->string('nickname',30);
+            $table->string('pais',20);
             $table->unsignedBigInteger('id_equipo');
             $table->foreign('id_equipo')->references('id')->on('equipos');
             #$table->timestamps();
