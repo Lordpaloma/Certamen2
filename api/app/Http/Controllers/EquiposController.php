@@ -12,7 +12,8 @@ class EquiposController extends Controller
      */
     public function index()
     {
-        //
+        $equipos= Equipo::Orderby('nombre')->get();
+        return $equipos;
     }
 
     /**
