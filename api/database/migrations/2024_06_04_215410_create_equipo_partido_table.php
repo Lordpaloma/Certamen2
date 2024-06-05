@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('partido_id')->references('id')->on('partidos');
             // $table->timestamps();
         });
-
     }
 
     /**
