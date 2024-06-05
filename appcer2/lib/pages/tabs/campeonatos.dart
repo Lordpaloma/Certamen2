@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class  CampeonatosTab extends StatelessWidget {
-  const CampeonatosTab ({super.key});
+  final AssetImage fondo = AssetImage('assets/images/campeonatos.jpg');
+  
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body:Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(image: fondo, fit: BoxFit.cover)
+        ),
+      )
+    );
   }
 }
