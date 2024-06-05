@@ -16,8 +16,8 @@ return new class extends Migration
             $table->tinyInteger('lugar');
             $table->integer('monto');
             $table->string('detalle',50);
-            $table->unsignedBigInteger('id_campeonatos');
-            $table->foreign('id_campeonatos')->references('id')->on('campeonatos');
+            $table->unsignedBigInteger('campeonatos_id');
+            $table->foreign('campeonatos_id')->references('id')->on('campeonatos');
             #$table->timestamps();
         });
     }

@@ -12,7 +12,8 @@ class PartidosController extends Controller
      */
     public function index()
     {
-        //
+        $campeonato = Campeonato::all();
+        return $campeonato;
     }
 
     /**

@@ -12,7 +12,8 @@ class PremiosController extends Controller
      */
     public function index()
     {
-        //
+        $Premios= Premios::all();
+        return $Premios;
     }
 
     /**

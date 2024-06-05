@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nickname',20);
             $table->string('pais',50);
-            $table->unsignedBigInteger('id_equipo');
-            $table->foreign('id_equipo')->references('id')->on('equipos');
+            $table->unsignedBigInteger('equipo_id');
+            $table->foreign('equipo_id')->references('id')->on('equipos');
             #$table->timestamps();
         });
     }

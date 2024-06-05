@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('equipo_partido', function (Blueprint $table) {
             $table->unsignedBigInteger('equipo_id');
             $table->unsignedBigInteger('partido_id');
-            $table->primary(['equipo_id','partido_id']);
+            $table->primary(['equipo_id', 'partido_id']);
             $table->tinyInteger('marcador');
 
             $table->foreign('equipo_id')->references('id')->on('equipos');
             $table->foreign('partido_id')->references('id')->on('partidos');
-            #$table->timestamps();
+            // $table->timestamps();
         });
+
     }
 
     /**

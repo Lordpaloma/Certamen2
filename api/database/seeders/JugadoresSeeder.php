@@ -14,22 +14,22 @@ class JugadoresSeeder extends Seeder
     public function run(): void
     {
         DB::table('jugadores')->insert([
-            ['nickname'=>'Jinggg','pais'=>'Singapur', 'id_equipo'=>1,],
-            ['nickname'=>'something','pais'=>'Rusia', 'id_equipo'=>1,],
-            ['nickname'=>'f0rsakeN','pais'=>'Indonesia', 'id_equipo'=>1,],
-            ['nickname'=>'mindfreak ','pais'=>'Indonesia', 'id_equipo'=>1,],
-            ['nickname'=>'D4v41','pais'=>'Malasia', 'id_equipo'=>1,],
-            ['nickname'=>'Saadhak','pais'=>'Argentina', 'id_equipo'=>2,],
-            ['nickname'=>'cauanzin','pais'=>'Brazil', 'id_equipo'=>2,],
-            ['nickname'=>'tuyz','pais'=>'Brazil', 'id_equipo'=>2,],
-            ['nickname'=>'Less','pais'=>'Brazil', 'id_equipo'=>2,],
-            ['nickname'=>'stk','pais'=>'Brazil', 'id_equipo'=>2,],
-            ['nickname'=>'Apotheon','pais'=>'Canada', 'id_equipo'=>3,],
-            ['nickname'=>'Derrek','pais'=>'EE.UU.', 'id_equipo'=>3,],
-            ['nickname'=>'NaturE','pais'=>'EE.UU', 'id_equipo'=>3,],
-            ['nickname'=>'supamen','pais'=>'EE.UU', 'id_equipo'=>3,],
-            ['nickname'=>'Jawgemo','pais'=>'Cambodia', 'id_equipo'=>3,],
-            ['nickname'=>'Tatoh','pais'=>'españa', 'id_equipo'=>4,],
+            ['nickname'=>'Jinggg','pais'=>'Singapur', 'equipo_id'=>1,],
+            ['nickname'=>'something','pais'=>'Rusia', 'equipo_id'=>1,],
+            ['nickname'=>'f0rsakeN','pais'=>'Indonesia', 'equipo_id'=>1,],
+            ['nickname'=>'mindfreak ','pais'=>'Indonesia', 'equipo_id'=>1,],
+            ['nickname'=>'D4v41','pais'=>'Malasia', 'equipo_id'=>1,],
+            ['nickname'=>'Saadhak','pais'=>'Argentina', 'equipo_id'=>2,],
+            ['nickname'=>'cauanzin','pais'=>'Brazil', 'equipo_id'=>2,],
+            ['nickname'=>'tuyz','pais'=>'Brazil', 'equipo_id'=>2,],
+            ['nickname'=>'Less','pais'=>'Brazil', 'equipo_id'=>2,],
+            ['nickname'=>'stk','pais'=>'Brazil', 'equipo_id'=>2,],
+            ['nickname'=>'Apotheon','pais'=>'Canada', 'equipo_id'=>3,],
+            ['nickname'=>'Derrek','pais'=>'EE.UU.', 'equipo_id'=>3,],
+            ['nickname'=>'NaturE','pais'=>'EE.UU', 'equipo_id'=>3,],
+            ['nickname'=>'supamen','pais'=>'EE.UU', 'equipo_id'=>3,],
+            ['nickname'=>'Jawgemo','pais'=>'Cambodia', 'equipo_id'=>3,],
+            ['nickname'=>'Tatoh','pais'=>'españa', 'equipo_id'=>4,],
         ]);
     }
 }

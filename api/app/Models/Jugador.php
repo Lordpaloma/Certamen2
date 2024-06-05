@@ -12,7 +12,8 @@ class Jugador extends Model
     protected $table = 'jugadores';
     public $timestamps = false;
 
-    public function equipo(): BelongsTo{
-        return $this->belongsTo(Equipo::class);
+    public function equipo():BelongsTo
+    {
+        return $this->belongsTo(equipo::class);
     }
 }

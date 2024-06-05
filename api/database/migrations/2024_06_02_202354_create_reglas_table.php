@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',60);
             $table->string('detalle',250);
-            $table->unsignedBigInteger('id_campeonato');
-            $table->foreign('id_campeonato')->references('id')->on('campeonatos');
+            $table->unsignedBigInteger('campeonato_id');
+            $table->foreign('campeonato_id')->references('id')->on('campeonatos');
             #$table->timestamps();
         });
     }
