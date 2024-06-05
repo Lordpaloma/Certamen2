@@ -9,4 +9,9 @@ class Resultado extends Model
 {
     protected $table = 'resultados';
     public $timestamps = false;
+
+    public function campeonato():BelongsTo
+    {
+        return $this->belongsTo(campeonato::class);
+    }
 }
