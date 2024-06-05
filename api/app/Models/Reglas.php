@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reglas extends Model
 {
-    use HasFactory;
+    protected $table = 'reglas';
+    public $timestamps = false;
 }

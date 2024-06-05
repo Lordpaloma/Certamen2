@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jugadores;
+use App\Models\Jugador;
 use Illuminate\Http\Request;
 
 class JugadoresController extends Controller
@@ -12,7 +12,8 @@ class JugadoresController extends Controller
      */
     public function index()
     {
-        //
+        $jugadores= Jugador::all();
+        return $jugadores;
     }
 
     /**

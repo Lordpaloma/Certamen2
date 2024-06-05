@@ -12,7 +12,8 @@ class ReglasController extends Controller
      */
     public function index()
     {
-        //
+        $reglas = Reglas::all();
+        return $reglas;
     }
 
     /**
