@@ -1,3 +1,4 @@
+import 'package:appcer2/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -28,10 +30,14 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Color.fromARGB(255, 3, 2, 30),
+            foregroundColor: Color.fromARGB(255, 255, 255, 255),
+            centerTitle: true),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 6, 3, 78)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 }

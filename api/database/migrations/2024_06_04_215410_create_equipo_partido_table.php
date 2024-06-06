@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jugadores', function (Blueprint $table) {
-            $table->id();
-            $table->string('nickname',20);
-            $table->string('pais',50);
+        Schema::create('equipo_partido', function (Blueprint $table) {
             $table->unsignedBigInteger('equipo_id');
+            $table->unsignedBigInteger('partido_id');
+            $table->primary(['equipo_id', 'partido_id']);
+            $table->tinyInteger('marcador');
+
             $table->foreign('equipo_id')->references('id')->on('equipos');
-            #$table->timestamps();
+            $table->foreign('partido_id')->references('id')->on('partidos');
+            // $table->timestamps();
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jugadores');
+        Schema::dropIfExists('equipo_partido');
     }
 };
