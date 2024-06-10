@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:appcer2/services/http_service.dart';
+import 'package:flutter/widgets.dart';
 
 class CampeonatosTile extends StatefulWidget {
   final String nombre;
@@ -13,7 +15,7 @@ class CampeonatosTile extends StatefulWidget {
       this.juego = '-',
       this.pais = 'xx',
       this.estado = 0,
-      this.fecha ='-'});
+      this.fecha = '-'});
 
   @override
   State<CampeonatosTile> createState() => _CampeonatosTileState();
@@ -24,7 +26,7 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(5, 5, 5, 2),
-      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white60),
         color: Color.fromARGB(173, 255, 255, 255),
@@ -33,21 +35,29 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(Icons.gamepad_sharp),
-          Column(
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${this.widget.nombre}',
-                  style: TextStyle(fontSize:16),),
                   Text(
-                    '${this.widget.juego}',
-                    style: TextStyle(fontSize: 14),
+                    ' ${this.widget.nombre}',
+                    style: TextStyle(fontSize: 16),
                   ),
-                  Text(
-                    '${this.widget.fecha}',
-                    style: TextStyle(
-                      fontSize: 14
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Juego: ${this.widget.juego}',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                        Text(
+                          'Fecha de inicio: ${this.widget.fecha}',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ],
                     ),
                   ),
                 ],
