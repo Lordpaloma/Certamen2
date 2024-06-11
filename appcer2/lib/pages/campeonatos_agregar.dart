@@ -13,16 +13,31 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
   TextEditingController juegoController = TextEditingController();
   TextEditingController paisController = TextEditingController();
   TextEditingController estadoController = TextEditingController();
-  TextEditingController fecha = TextEditingController();
+  TextEditingController fechaController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
   String paisSeleccionado = 'Chile';
+  bool fueJugado = false;
 
   String errNombre = "";
   String errjuego = "";
   String errpais = "";
   String errestado = "";
   String errfecha = "";
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != DateTime.now()) {
+      setState(() {
+        fechaController.text = "${picked.toLocal()}".split(' ')[0];
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +46,29 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
         title: Text('Agregar Campeonato'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(10),
         child: Form(
           key: formKey,
           child: ListView(
             children: [
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.fromLTRB(5, 10, 20, 5),
+                decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  border: Border(
+                      bottom: BorderSide(color: Colors.black54, width: 5)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Agregar Campeonato',
+                      style: TextStyle(color: Colors.black, fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Nombre'),
                 controller: nombreController,
@@ -61,11 +94,41 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                       );
                     }).toList(),
                     onChanged: (opcionSeleccionada) {
-                      paisSeleccionado = opcionSeleccionada!;
+                      setState(() {
+                        paisSeleccionado = opcionSeleccionada!;
+                      });
                       print('PAIS: $paisSeleccionado');
                     },
                   );
                 },
+              ),
+              TextFormField(
+                controller: fechaController,
+                decoration: InputDecoration(
+                  labelText: 'Fecha',
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.calendar_today),
+                    onPressed: () => _selectDate(context),
+                  ),
+                ),
+                readOnly: true,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '¿Fue jugado?',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  Switch(
+                    value: fueJugado,
+                    onChanged: (bool value) {
+                      setState(() {
+                        fueJugado = value;
+                      });
+                    },
+                  ),
+                ],
               ),
             ],
           ),
