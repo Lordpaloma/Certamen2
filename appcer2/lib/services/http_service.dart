@@ -9,20 +9,19 @@ class HttpService {
     return listarDatos('Campeonatos');
   }
 
-    Future<List<dynamic>> equipos() async {
+  Future<List<dynamic>> equipos() async {
     return listarDatos('equipos');
   }
 
-      Future<List<dynamic>> jugadores() async {
+  Future<List<dynamic>> jugadores() async {
     return listarDatos('jugadores');
   }
 
-      Future<List<dynamic>> partidos() async {
+  Future<List<dynamic>> partidos() async {
     return listarDatos('partidos');
   }
 
-
-    Future<List<dynamic>> listarDatos(String coleccion) async {
+  Future<List<dynamic>> listarDatos(String coleccion) async {
     var respuesta = await http.get(Uri.parse(apiUrl + '/' + coleccion));
 
     if (respuesta.statusCode == 200) {
@@ -32,5 +31,14 @@ class HttpService {
     return [];
   }
 
+  Future<List<dynamic>> paises() async {
+    var respuesta = await http.get(Uri.parse(
+        'https://restcountries.com/v3.1/all?fields=name,cca2&lang=spanish'));
 
+    if (respuesta.statusCode == 200) {
+      return json.decode(respuesta.body);
+    }
+
+    return [];
   }
+}
