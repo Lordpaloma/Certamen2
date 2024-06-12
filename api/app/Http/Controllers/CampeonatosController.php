@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CampeonatoRequest;
 use App\Models\Campeonato;
 use Illuminate\Http\Request;
+use App\Models\Reglas;
+use App\Models\Premios;
 
 class CampeonatosController extends Controller
 {
@@ -29,10 +32,15 @@ class CampeonatosController extends Controller
      */
     public function store(CampeonatoRequest $request)
     {
-        $equipo= new Equipo();
-        $equipo->nombre = $request->nombre;
-        $equipo->save();
-        return $equipo;
+        $campeonato = new Campeonato();
+        $campeonato->nombre = $request->nombre;
+        $campeonato->juego = $request->juego;
+        $campeonato->pais = $request->pais;
+        $campeonato->estado = $request->estado;
+        $campeonato->fecha = $request->fecha;
+        $campeonato->save();
+
+        return response($campeonato);
     }
 
     /**
@@ -66,4 +74,17 @@ class CampeonatosController extends Controller
     {
         //
     }
+    public function obtenerDatosCampeonato($idCampeonato)
+    {
+        $campeonato = Campeonato::find($idCampeonato);
+        if (!$campeonato) {
+            return response()->json(['error' => 'Campeonato no encontrado'], 404);
+        }
+
+        $reglas = Reglas::where('campeonato_id', $idCampeonato)->get();
+        $premios = Premios::where('campeonato_id', $idCampeonato)->get();
+
+        return response()->json(['campeonato' => $campeonato, 'reglas' => $reglas, 'premios' => $premios]);
+    }
+    
 }

@@ -37,12 +37,12 @@ class _CampeonatosTabState extends State<CampeonatosTab> {
                     itemBuilder: (context, index) {
                       var campeonato = snapshot.data[index];
                       return CampeonatosTile(
-                        nombre: campeonato['nombre'],
-                        juego: campeonato['juego'],
-                        pais: campeonato['pais'],
-                        fecha: campeonato['fecha'],
-                        estado: campeonato['estado'],
-                      );
+                          nombre: campeonato['nombre'],
+                          juego: campeonato['juego'],
+                          pais: campeonato['pais'],
+                          fecha: campeonato['fecha'],
+                          estado: campeonato['estado'],
+                          id: campeonato['id']);
                     },
                   );
                 },

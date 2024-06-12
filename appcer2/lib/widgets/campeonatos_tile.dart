@@ -1,4 +1,6 @@
+import 'package:appcer2/pages/campeonato_detalle.dart';
 import 'package:flutter/material.dart';
+// Asegúrate de ajustar la ruta según la estructura de tu proyecto
 
 class CampeonatosTile extends StatefulWidget {
   final String nombre;
@@ -6,6 +8,7 @@ class CampeonatosTile extends StatefulWidget {
   final String pais;
   final int estado;
   final String fecha;
+  final int id;
 
   CampeonatosTile({
     this.nombre = 'sin nombre',
@@ -13,6 +16,7 @@ class CampeonatosTile extends StatefulWidget {
     this.pais = 'xx',
     this.estado = 0,
     this.fecha = '-',
+    required this.id,
   });
 
   @override
@@ -50,6 +54,25 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
                 style: TextStyle(fontSize: 14),
               ),
             ],
+          ),
+          Spacer(),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CampeonatoDetalle(
+                    //id: widget.id,
+                    //nombre: widget.nombre,
+                    //juego: widget.juego,
+                    //pais: widget.pais,
+                    //estado: widget.estado,
+                    //fecha: widget.fecha,
+                  ),
+                ),
+              );
+            },
+            child: Text('Ver Detalles'),
           ),
         ],
       ),

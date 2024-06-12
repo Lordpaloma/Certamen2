@@ -37,7 +37,7 @@ class ReglasController extends Controller
      */
     public function show(Reglas $reglas)
     {
-        //
+        return $reglas;
     }
 
     /**
@@ -62,5 +62,9 @@ class ReglasController extends Controller
     public function destroy(Reglas $reglas)
     {
         //
+    }
+    public function scopePorCampeonato($query, $idCampeonato)
+    {
+        return $query->where('campeonato_id', $idCampeonato);
     }
 }

@@ -12,8 +12,8 @@ class PremiosController extends Controller
      */
     public function index()
     {
-        $Premios= Premios::all();
-        return $Premios;
+        $premios= Premios::all();
+        return $premios;
     }
 
     /**
@@ -37,7 +37,7 @@ class PremiosController extends Controller
      */
     public function show(Premios $premios)
     {
-        //
+        return $premios;
     }
 
     /**
@@ -63,4 +63,8 @@ class PremiosController extends Controller
     {
         //
     }
+    public function scopePorCampeonato($query, $idCampeonato)
+{
+    return $query->where('campeonato_id', $idCampeonato);
+}
 }
