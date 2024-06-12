@@ -12,8 +12,8 @@ class ResultadoController extends Controller
      */
     public function index()
     {
-        $campeonato = Campeonato::all();
-        return $campeonato;
+        $resultados = Resultado::all();
+        return $resultados;
     }
 
     /**
@@ -37,7 +37,7 @@ class ResultadoController extends Controller
      */
     public function show(Resultado $resultado)
     {
-        //
+        return $resultado;  
     }
 
     /**

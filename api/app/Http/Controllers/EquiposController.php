@@ -29,7 +29,12 @@ class EquiposController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $equipo = new Equipo();
+        $equipo-> nombre = $request->nombre;
+        $equipo-> acronimo = $request->acronimo;
+        $equipo-> entrenador = $request->entrenador;
+        $equipo->save();
+        return $equipo;
     }
 
     /**
@@ -37,7 +42,7 @@ class EquiposController extends Controller
      */
     public function show(Equipo $equipo)
     {
-        //
+        return $equipo;
     }
 
     /**

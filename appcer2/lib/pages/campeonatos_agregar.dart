@@ -55,7 +55,7 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                 width: double.infinity,
                 padding: EdgeInsets.fromLTRB(5, 10, 20, 5),
                 decoration: BoxDecoration(
-                  color: Colors.blueAccent,
+                  color: Color.fromARGB(255, 6, 3, 78),
                   border: Border(
                       bottom: BorderSide(color: Colors.black54, width: 5)),
                 ),
@@ -64,7 +64,7 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                   children: [
                     Text(
                       'Agregar Campeonato',
-                      style: TextStyle(color: Colors.black, fontSize: 15),
+                      style: TextStyle(color: Colors.white, fontSize: 15),
                     ),
                   ],
                 ),
@@ -73,9 +73,17 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                 decoration: InputDecoration(labelText: 'Nombre'),
                 controller: nombreController,
               ),
+              Text(
+                errNombre,
+                style: TextStyle(color: Colors.red),
+              ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Juego'),
                 controller: juegoController,
+              ),
+              Text(
+                errjuego,
+                style: TextStyle(color: Colors.red),
               ),
               FutureBuilder(
                 future: HttpService().paises(),
@@ -94,14 +102,17 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                       );
                     }).toList(),
                     onChanged: (opcionSeleccionada) {
-                      setState(() {
-                        paisSeleccionado = opcionSeleccionada!;
-                      });
-                      print('PAIS: $paisSeleccionado');
+                      setState(
+                        () {
+                          paisSeleccionado = opcionSeleccionada!;
+                          print('PAIS: $paisSeleccionado');
+                        },
+                      );
                     },
                   );
                 },
               ),
+              Text(errpais, style: TextStyle(color: Colors.red)),
               TextFormField(
                 controller: fechaController,
                 decoration: InputDecoration(
@@ -128,7 +139,47 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                       });
                     },
                   ),
+                  Text(
+                    errestado,
+                    style: TextStyle(color: Colors.red),
+                  )
                 ],
+              ),
+              Container(
+                margin: EdgeInsets.all(10),
+                child: FilledButton(
+                  style: FilledButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 6, 3, 78)),
+                  child: Text('Agregar Campeonato'),
+                  onPressed: () async {
+                    var respuesta = await HttpService().campeonatosAgregar(
+                      nombreController.text,
+                      juegoController.text,
+                      paisSeleccionado,
+                      fueJugado,
+                      fechaController.text,
+                    );
+                    if (respuesta['message'] != null) {
+                      var errores = respuesta['errors'];
+                      setState(() {
+                        errNombre = errores['Nombre'] != null
+                            ? errores['Nombre'][0]
+                            : '';
+                        errjuego =
+                            errores['juego'] != null ? errores['juego'][0] : '';
+                        errpais =
+                            errores['pais'] != null ? errores['pais'][0] : '';
+                        errfecha =
+                            errores['fecha'] != null ? errores['fecha'][0] : '';
+                        errestado = errores['estado'] != null
+                            ? errores['estado'][0]
+                            : '';
+                      });
+                      print(errNombre);
+                    }
+                    else{Navigator.pop(context);}
+                  },
+                ),
               ),
             ],
           ),
