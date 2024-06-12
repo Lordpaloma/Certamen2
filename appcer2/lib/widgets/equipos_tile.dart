@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:appcer2/services/http_service.dart';
 
-class CampeonatosTile extends StatefulWidget {
+class EquiposTile extends StatefulWidget {
   final String nombre;
-  final String juego;
-  final String pais;
-  final int estado;
-  final String fecha;
+  final String acronimo;
+  final String entrenador;
 
-  CampeonatosTile(
-      {this.nombre = 'sin nombre',
-      this.juego = '-',
-      this.pais = 'xx',
-      this.estado = 0,
-      this.fecha ='-'});
+  EquiposTile(
+      {this.nombre = '-',
+      this.acronimo = 'xx',
+      this.entrenador ='-'});
 
   @override
-  State<CampeonatosTile> createState() => _CampeonatosTileState();
+  State<EquiposTile> createState() => _EquiposTileState();
 }
 
-class _CampeonatosTileState extends State<CampeonatosTile> {
+class _EquiposTileState extends State<EquiposTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,15 +37,10 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
                   Text('${this.widget.nombre} | ',
                   style: TextStyle(fontSize:16),),
                   Text(
-                    '${this.widget.juego} | ',
+                    '${this.widget.acronimo}',
                     style: TextStyle(fontSize: 14),
                   ),
-                  Text(
-                    '${this.widget.fecha}',
-                    style: TextStyle(
-                      fontSize: 14
-                    ),
-                  ),
+                  
                 ],
               )
             ],
