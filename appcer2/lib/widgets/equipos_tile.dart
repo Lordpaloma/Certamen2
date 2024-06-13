@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:appcer2/pages/tabs/testpage.dart';
 import 'package:appcer2/services/http_service.dart';
 
 
@@ -22,11 +23,16 @@ class _EquiposTileState extends State<EquiposTile> {
   Widget build(BuildContext context) {
     
     return InkWell(
-      onTap: () => print("Container pressed"), // Handle your onTap here.
+      onTap: () {
+        print("The Sommelier");
+        final route = MaterialPageRoute(builder: (context) {
+          return TestPage();
+        });
+        Navigator.push(context, route);
+      }, // Handle your onTap here.
       child: Container(
         margin: EdgeInsets.fromLTRB(5, 5, 5, 2),
-        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-        
+        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10), 
         decoration: BoxDecoration(
           border: Border.all(color: Colors.white60),
           color: Color.fromARGB(173, 255, 255, 255),
