@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('nombre',30);
             $table->string('juego',25);
             $table->string('pais',25);
-            $table->boolean('estado');
-            $table->date('fecha');
+            $table->string('fecha',12);
             #$table->timestamps();
         });
     }

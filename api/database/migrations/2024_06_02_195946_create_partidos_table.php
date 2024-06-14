@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('partidos', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
+            $table->string('fecha',12);
             $table->boolean('jugado');
             $table->unsignedBigInteger('campeonato_id');
             $table->foreign('campeonato_id')->references('id')->on('campeonatos');

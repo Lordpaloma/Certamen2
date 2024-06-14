@@ -21,3 +21,4 @@ Route::resource('/Premios',PremiosController::class);
 Route::resource('/Reglas',ReglasController::class);
 Route::resource('/Resultado',ResultadoController::class);
 Route::resource('/Jugadores', JugadoresController::class);
+Route::get('/Campeonatos/{id}', [CampeonatosController::class, 'obtenerDatosCampeonato']);
