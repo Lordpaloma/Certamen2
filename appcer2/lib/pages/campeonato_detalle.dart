@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 class CampeonatoDetalle extends StatefulWidget {
-  const CampeonatoDetalle({super.key});
+  
 
   @override
   State<CampeonatoDetalle> createState() => _CampeonatoDetalleState();

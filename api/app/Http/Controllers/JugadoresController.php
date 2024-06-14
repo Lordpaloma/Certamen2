@@ -12,7 +12,7 @@ class JugadoresController extends Controller
      */
     public function index()
     {
-        $jugadores= Jugador::all();
+        $jugadores= Jugador::Orderby('nickname')->get();
         return $jugadores;
     }
 
@@ -35,9 +35,9 @@ class JugadoresController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Jugador $jugadores)
+    public function show(Jugador $jugador)
     {
-        return $jugadores;
+        return $jugador;
     }
 
     /**
