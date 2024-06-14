@@ -21,6 +21,10 @@ class HttpService {
     return listarDatos('partidos');
   }
 
+    Future<List<dynamic>> reglas() async {
+    return listarDatos('Reglas');
+  }
+
   Future<List<dynamic>> listarDatos(String coleccion) async {
     var respuesta = await http.get(Uri.parse(apiUrl + '/' + coleccion));
 
@@ -43,7 +47,7 @@ class HttpService {
   }
 
   Future<LinkedHashMap<String, dynamic>> campeonatosAgregar(
-      String nombre, String juego, String pais, String fecha) async {
+      String nombre, String juego, String pais, String fecha,) async {
     var url = Uri.parse('$apiUrl/Campeonatos');
     var respuesta = await http.post(
       url,

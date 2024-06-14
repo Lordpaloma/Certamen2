@@ -14,7 +14,7 @@ class CampeonatosController extends Controller
      */
     public function index()
     {
-        $campeonato = Campeonato::all()->load('Reglas', 'Premios')->makeHidden('regla_id');
+        $campeonato = Campeonato::all()->load('Reglas', 'Premios')->makeHidden(['regla_id', 'premio_id']);
         return $campeonato;
     }
 
