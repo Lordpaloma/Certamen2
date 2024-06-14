@@ -33,7 +33,7 @@ class EquiposController extends Controller
         $equipo-> nombre = $request->nombre;
         $equipo-> acronimo = $request->acronimo;
         $equipo-> entrenador = $request->entrenador;
-        $equipo->save();
+        $equipo-> save();
         return $equipo;
     }
 

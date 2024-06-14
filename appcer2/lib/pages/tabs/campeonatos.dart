@@ -41,7 +41,6 @@ class _CampeonatosTabState extends State<CampeonatosTab> {
                           juego: campeonato['juego'],
                           pais: campeonato['pais'],
                           fecha: campeonato['fecha'],
-                          estado: campeonato['estado'],
                           id: campeonato['id']);
                     },
                   );

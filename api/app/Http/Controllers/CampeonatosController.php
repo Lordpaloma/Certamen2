@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CampeonatoRequest;
 use App\Models\Campeonato;
 use Illuminate\Http\Request;
-use App\Models\Reglas;
-use App\Models\Premios;
+
 
 class CampeonatosController extends Controller
 {
@@ -15,7 +14,7 @@ class CampeonatosController extends Controller
      */
     public function index()
     {
-        $campeonato = Campeonato::all();
+        $campeonato = Campeonato::all()->load('Reglas', 'Premios')->makeHidden(['regla_id', 'premio_id']);
         return $campeonato;
     }
 
@@ -30,25 +29,26 @@ class CampeonatosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+
     public function store(CampeonatoRequest $request)
     {
         $campeonato = new Campeonato();
         $campeonato->nombre = $request->nombre;
         $campeonato->juego = $request->juego;
         $campeonato->pais = $request->pais;
-        $campeonato->estado = $request->estado;
         $campeonato->fecha = $request->fecha;
         $campeonato->save();
-
-        return response($campeonato);
+        return $campeonato;
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(Campeonato $campeonato)
     {
-        //
+        return $campeonato;
     }
 
     /**
@@ -74,17 +74,6 @@ class CampeonatosController extends Controller
     {
         //
     }
-    public function obtenerDatosCampeonato($idCampeonato)
-    {
-        $campeonato = Campeonato::find($idCampeonato);
-        if (!$campeonato) {
-            return response()->json(['error' => 'Campeonato no encontrado'], 404);
-        }
 
-        $reglas = Reglas::where('campeonato_id', $idCampeonato)->get();
-        $premios = Premios::where('campeonato_id', $idCampeonato)->get();
 
-        return response()->json(['campeonato' => $campeonato, 'reglas' => $reglas, 'premios' => $premios]);
-    }
-    
 }
