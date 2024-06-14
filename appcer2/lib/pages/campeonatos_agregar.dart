@@ -12,12 +12,10 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
   TextEditingController nombreController = TextEditingController();
   TextEditingController juegoController = TextEditingController();
   TextEditingController paisController = TextEditingController();
-  TextEditingController estadoController = TextEditingController();
   TextEditingController fechaController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
   String paisSeleccionado = 'Chile';
-  bool fueJugado = false;
 
   String errNombre = "";
   String errjuego = "";
@@ -124,27 +122,6 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                 ),
                 readOnly: true,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '¿Fue jugado?',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  Switch(
-                    value: fueJugado,
-                    onChanged: (bool value) {
-                      setState(() {
-                        fueJugado = value;
-                      });
-                    },
-                  ),
-                  Text(
-                    errestado,
-                    style: TextStyle(color: Colors.red),
-                  )
-                ],
-              ),
               Container(
                 margin: EdgeInsets.all(10),
                 child: FilledButton(
@@ -156,14 +133,14 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                       nombreController.text,
                       juegoController.text,
                       paisSeleccionado,
-                      fueJugado,
                       fechaController.text,
                     );
                     if (respuesta['message'] != null) {
                       var errores = respuesta['errors'];
                       setState(() {
-                        errNombre = errores['Nombre'] != null
-                            ? errores['Nombre'][0]
+                        
+                        errNombre = errores['nombre'] != null
+                            ? errores['nombre'][0]
                             : '';
                         errjuego =
                             errores['juego'] != null ? errores['juego'][0] : '';
@@ -176,8 +153,9 @@ class _CampeonatosAgregarState extends State<CampeonatosAgregar> {
                             : '';
                       });
                       print(errNombre);
+                    } else {
+                      Navigator.pop(context);
                     }
-                    else{Navigator.pop(context);}
                   },
                 ),
               ),

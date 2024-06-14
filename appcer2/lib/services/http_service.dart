@@ -43,7 +43,7 @@ class HttpService {
   }
 
   Future<LinkedHashMap<String, dynamic>> campeonatosAgregar(String nombre,
-      String juego, String pais, bool estado, String fecha) async {
+      String juego, String pais, String fecha) async {
     var url = Uri.parse('$apiUrl/Campeonatos');
     var respuesta = await http.post(
       url,
@@ -55,7 +55,6 @@ class HttpService {
         'nombre': nombre,
         'juego': juego,
         'pais': pais,
-        'estado': estado,
         'fecha': fecha,
       }),
     );
