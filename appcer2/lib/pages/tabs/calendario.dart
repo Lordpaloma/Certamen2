@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 
-class CalendarioTab extends StatelessWidget {
+class CalendarioTab extends StatefulWidget {
   const CalendarioTab({super.key});
 
   @override
+  State<CalendarioTab> createState() => _CalendarioTabState();
+}
+
+class _CalendarioTabState extends State<CalendarioTab> {
+  final AssetImage fondo = AssetImage('assets/images/campeonatos.jpg');
+
+  @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(image: fondo, fit: BoxFit.cover),
+        ),
+      ),
+    );
   }
 }
