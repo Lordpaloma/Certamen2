@@ -1,7 +1,7 @@
 
+import 'package:appcer2/pages/testpag.dart';
 import 'package:flutter/material.dart';
-import 'package:appcer2/pages/tabs/testpage.dart';
-import 'package:appcer2/services/http_service.dart';
+
 
 
 class EquiposTile extends StatefulWidget {
