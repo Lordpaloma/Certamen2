@@ -41,6 +41,7 @@ class _PartidosTilesState extends State<PartidosTiles> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text('Partido: '),
                 Text(
                   'Campeonato  ${widget.campeonatoid}',
                   style: TextStyle(fontSize: 16),
