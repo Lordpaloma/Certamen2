@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
             EquiposSeeder::class,
             JugadoresSeeder::class,
             PremiosSeeder::class,
-            ReglasSeeder ::class
+            ReglasSeeder ::class,
+            PartidosSeeder::class,
+            ResultadosSeeder::class,
         ]);
     }
 }

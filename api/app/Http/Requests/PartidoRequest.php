@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CampeonatoRequest extends FormRequest
+class PartidoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,22 +22,17 @@ class CampeonatoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => ['required', 'min:3', 'max:30'],
-            'pais' => ['required'],
-            'juego' => ['required'],
-            'fecha' => ['required'],
+            'campeonato_id' => ['required'],
+            'fecha' => ['required', 'min:9'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'nombre.required' => 'Indique el nombre del equipo',
-            'nombre.min' => 'El nombre debe tener mínimo 3 letras',
-            'nombre.max' => 'El nombre debe tener máximo 30 letras',
-            'pais.required' => 'Debe indicar país',
-            'juego.required' => 'Debe indicar juego',
-            'fecha.required' => ''
+            'campeonato_id.required' => 'Indique Id de campeonato',
+            'fecha.required' => 'Indique fecha',
+            'fecha.min' => 'Fecha inválida',
         ];
     }
 }
