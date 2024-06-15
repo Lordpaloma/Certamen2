@@ -12,7 +12,7 @@ class JugadoresController extends Controller
      */
     public function index()
     {
-        $jugadores= Jugador::all();
+        $jugadores= Jugador::Orderby('nickname')->get();
         return $jugadores;
     }
 
@@ -29,21 +29,21 @@ class JugadoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Jugadores $jugadores)
+    public function show(Jugador $jugador)
     {
-        //
+        return $jugador;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Jugadores $jugadores)
+    public function edit(Jugador $jugadores)
     {
         //
     }
@@ -51,7 +51,7 @@ class JugadoresController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Jugadores $jugadores)
+    public function update(Request $request, Jugador $jugadores)
     {
         //
     }
@@ -59,7 +59,7 @@ class JugadoresController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jugadores $jugadores)
+    public function destroy(Jugador $jugadores)
     {
         //
     }

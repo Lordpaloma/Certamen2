@@ -1,5 +1,6 @@
+import 'package:appcer2/pages/campeonato_detalle.dart';
 import 'package:flutter/material.dart';
-import 'package:appcer2/services/http_service.dart';
+// Asegúrate de ajustar la ruta según la estructura de tu proyecto
 
 class CampeonatosTile extends StatefulWidget {
   final String nombre;
@@ -7,13 +8,16 @@ class CampeonatosTile extends StatefulWidget {
   final String pais;
   final int estado;
   final String fecha;
+  final int id;
 
-  CampeonatosTile(
-      {this.nombre = 'sin nombre',
-      this.juego = '-',
-      this.pais = 'xx',
-      this.estado = 0,
-      this.fecha ='-'});
+  CampeonatosTile({
+    this.nombre = 'sin nombre',
+    this.juego = '-',
+    this.pais = 'xx',
+    this.estado = 0,
+    this.fecha = '-',
+    required this.id,
+  });
 
   @override
   State<CampeonatosTile> createState() => _CampeonatosTileState();
@@ -24,7 +28,7 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(5, 5, 5, 2),
-      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white60),
         color: Color.fromARGB(173, 255, 255, 255),
@@ -33,9 +37,11 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(Icons.gamepad_sharp),
+          SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+<<<<<<< HEAD
               Row(
                 children: [
                   Text('${this.widget.nombre} | ',
@@ -52,8 +58,41 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
                   ),
                 ],
               )
+=======
+              Text(
+                ' ${widget.nombre}',
+                style: TextStyle(fontSize: 16),
+              ),
+              Text(
+                'Juego: ${widget.juego}',
+                style: TextStyle(fontSize: 14),
+              ),
+              Text(
+                'Fecha de inicio: ${widget.fecha}',
+                style: TextStyle(fontSize: 14),
+              ),
+>>>>>>> d648daf028f6dd6faf99a3cfa14b3d089eb3e701
             ],
-          )
+          ),
+          Spacer(),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CampeonatoDetalle(
+                    id: widget.id,
+                    //nombre: widget.nombre,
+                    //juego: widget.juego,
+                    //pais: widget.pais,
+                    //estado: widget.estado,
+                    //fecha: widget.fecha,
+                  ),
+                ),
+              );
+            },
+            child: Text('Ver Detalles'),
+          ),
         ],
       ),
     );

@@ -12,7 +12,7 @@ class PartidosController extends Controller
      */
     public function index()
     {
-        $campeonato = Campeonato::all();
+        $campeonato = Partido::all();
         return $campeonato;
     }
 
@@ -37,7 +37,7 @@ class PartidosController extends Controller
      */
     public function show(Partido $partido)
     {
-        //
+        return $partido;
     }
 
     /**
