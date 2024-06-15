@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PremiosSeeder::class,
             ReglasSeeder ::class,
             PartidosSeeder::class,
+            ResultadosSeeder::class,
         ]);
     }
 }

@@ -24,6 +24,9 @@ class HttpService {
     Future<List<dynamic>> reglas() async {
     return listarDatos('Reglas');
   }
+    Future<List<dynamic>> resultado() async {
+    return listarDatos('Resultado');
+  }
 
   Future<List<dynamic>> listarDatos(String coleccion) async {
     var respuesta = await http.get(Uri.parse(apiUrl + '/' + coleccion));
