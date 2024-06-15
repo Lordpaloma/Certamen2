@@ -3,9 +3,27 @@ import 'package:appcer2/widgets/equipos_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class TestPage extends StatelessWidget {
-  const TestPage({super.key});
+class TestPage extends StatefulWidget {
+  //const TestPage({super.key});
   
+
+  final String nombre;
+  final String acronimo;
+  final String entrenador;
+  final int id;
+
+  TestPage(
+      {this.nombre = '-',
+      this.acronimo = 'xx',
+      this.entrenador ='-',
+      required this.id}
+      );
+
+  @override
+  State<TestPage> createState() => _TestPageState();
+}
+
+class _TestPageState extends State<TestPage> {
   @override
 Widget build(BuildContext context) {
   final AssetImage fondo = AssetImage('assets/images/campeonatos.jpg');
@@ -38,9 +56,9 @@ Widget build(BuildContext context) {
               Column( 
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Nombre de Equipo: ',style: TextStyle(fontSize: 16),),
-                Text('Acronimo:  ', style: TextStyle(fontSize: 14),),
-                Text('Entrenador:  ', style: TextStyle(fontSize: 14),),
+                Text('Nombre de Equipo: ${widget.nombre}',style: TextStyle(fontSize: 16),),
+                Text('Acronimo:  ${widget.acronimo}', style: TextStyle(fontSize: 14),),
+                Text('Entrenador:  ${widget.entrenador}', style: TextStyle(fontSize: 14),),
               ],
             ),
             Container(

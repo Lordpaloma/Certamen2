@@ -27,7 +27,12 @@ class _EquiposTileState extends State<EquiposTile> {
     return InkWell(
       onTap: () {
         final route = MaterialPageRoute(builder: (context) {
-          return TestPage();
+          return TestPage(
+            id: widget.id,
+            nombre: widget.nombre,
+            acronimo: widget.acronimo,
+            entrenador: widget.entrenador,
+            );
         });
         Navigator.push(context, route);
       }, 
