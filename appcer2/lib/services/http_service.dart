@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class HttpService {
-  final String apiUrl = 'http://10.0.2.2:8000/api';
+  final String apiUrl = 'http://127.0.0.1:8000/api';
 
   Future<List<dynamic>> campeonatos() async {
     return listarDatos('Campeonatos');

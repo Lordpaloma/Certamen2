@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 
 class TestPage extends StatelessWidget {
   const TestPage({super.key});
-
+  
   @override
 Widget build(BuildContext context) {
   final AssetImage fondo = AssetImage('assets/images/campeonatos.jpg');
@@ -23,18 +23,68 @@ Widget build(BuildContext context) {
         decoration: BoxDecoration(
           image: DecorationImage(image: fondo, fit: BoxFit.cover),
         ),
-        child: Column(
-            children: [
-              Row(
-                children: [Text("hola")],
+        child: Container(
+          margin: EdgeInsets.fromLTRB(5, 5, 5, 2),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.white60),
+            color: Color.fromARGB(173, 255, 255, 255),
+          ),
+        child: Container(
+          child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row( children: [
+              Column( 
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Nombre de Equipo: ',style: TextStyle(fontSize: 16),),
+                Text('Acronimo:  ', style: TextStyle(fontSize: 14),),
+                Text('Entrenador:  ', style: TextStyle(fontSize: 14),),
+              ],
+            ),
+            Container(
+              
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white60),
               ),
-              Row(
-                children: [Text("ayua")],
-              ),
+              child: Row( 
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Jugadores:',style: TextStyle(fontSize: 20),),
+                ],
+              )
+            ),
             ],
             ),
-            
-            ),
+          ],
+        ),
+        
+        ),
+        
+        )
+      
+        
+    )
+        /*Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              
+                  Text('Nombre de Equipo: ', style: TextStyle(fontSize:16),),
+                  Text('Acronimo:  ', style: TextStyle(fontSize: 14)),
+                  Text('Entrenador:  ',style: TextStyle(fontSize: 14)),
+                
+            ),*/
+          
+           /* Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Jugadores:', style: TextStyle(fontSize:20),),
+                //Text(jugadores['nickname']),
+                //Text(jugadores['pais']),
+              ],
+            ),*/
+        
       );
+        
   }
 }

@@ -41,24 +41,6 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-<<<<<<< HEAD
-              Row(
-                children: [
-                  Text('${this.widget.nombre} | ',
-                  style: TextStyle(fontSize:16),),
-                  Text(
-                    '${this.widget.juego} | ',
-                    style: TextStyle(fontSize: 14),
-                  ),
-                  Text(
-                    '${this.widget.fecha}',
-                    style: TextStyle(
-                      fontSize: 14
-                    ),
-                  ),
-                ],
-              )
-=======
               Text(
                 ' ${widget.nombre}',
                 style: TextStyle(fontSize: 16),
@@ -71,7 +53,6 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
                 'Fecha de inicio: ${widget.fecha}',
                 style: TextStyle(fontSize: 14),
               ),
->>>>>>> d648daf028f6dd6faf99a3cfa14b3d089eb3e701
             ],
           ),
           Spacer(),
@@ -80,7 +61,8 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CampeonatoDetalle(
+                  builder: (context) 
+                  => CampeonatoDetalle(
                     id: widget.id,
                     //nombre: widget.nombre,
                     //juego: widget.juego,

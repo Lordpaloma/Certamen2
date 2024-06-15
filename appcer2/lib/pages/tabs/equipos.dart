@@ -38,6 +38,7 @@ class _EquiposTabState extends State<EquiposTab> {
                         nombre: equipos['nombre'],
                         acronimo: equipos['acronimo'],
                         entrenador: equipos['entrenador'],
+                        id: equipos['id'],
                       );
                     },
                   );

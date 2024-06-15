@@ -7,11 +7,13 @@ class EquiposTile extends StatefulWidget {
   final String nombre;
   final String acronimo;
   final String entrenador;
+  final int id;
 
   EquiposTile(
       {this.nombre = '-',
       this.acronimo = 'xx',
-      this.entrenador ='-'}
+      this.entrenador ='-',
+      required this.id}
       );
 
   @override
