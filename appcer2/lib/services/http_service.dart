@@ -85,4 +85,23 @@ class HttpService {
     );
     return json.decode(respuesta.body);
   }
+
+    Future<LinkedHashMap<String, dynamic>> partidosAgregar(
+    int campeonato_id,
+    String fecha,
+  ) async {
+    var url = Uri.parse('$apiUrl/Partidos');
+    var respuesta = await http.post(
+      url,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json'
+      },
+      body: json.encode(<String, dynamic>{
+        'nombre': campeonato_id,
+        'acronimo': fecha,
+      }),
+    );
+    return json.decode(respuesta.body);
+  }
 }

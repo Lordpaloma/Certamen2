@@ -93,7 +93,7 @@ class _PartidosAgregarState extends State<PartidosAgregar> {
                   onPressed: () async {
                     var respuesta = await HttpService().partidosAgregar(
                         //hay que crear en db partidosAgregar <3
-                        campeonatoidController.text,
+                        int.tryParse(campeonatoidController.text) ?? 0,
                         fechaController.text);
                     if (respuesta['message'] != null) {
                       var errores = respuesta['errors'];
