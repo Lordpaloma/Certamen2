@@ -23,8 +23,18 @@ Widget build(BuildContext context) {
         decoration: BoxDecoration(
           image: DecorationImage(image: fondo, fit: BoxFit.cover),
         ),
-      
-      ),
-    );
+        child: Column(
+            children: [
+              Row(
+                children: [Text("hola")],
+              ),
+              Row(
+                children: [Text("ayua")],
+              ),
+            ],
+            ),
+            
+            ),
+      );
   }
 }

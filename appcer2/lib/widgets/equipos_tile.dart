@@ -24,12 +24,11 @@ class _EquiposTileState extends State<EquiposTile> {
     
     return InkWell(
       onTap: () {
-        print("The Sommelier");
         final route = MaterialPageRoute(builder: (context) {
           return TestPage();
         });
         Navigator.push(context, route);
-      }, // Handle your onTap here.
+      }, 
       child: Container(
         margin: EdgeInsets.fromLTRB(5, 5, 5, 2),
         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10), 
