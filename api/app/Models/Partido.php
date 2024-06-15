@@ -15,6 +15,6 @@ class Partido extends Model
 
     public function campeonato():BelongsTo
     {
-        return $this->belongsTo(campeonato::class)->withPivot(['Marcador']);
+        return $this->belongsTo(campeonato::class);
     }
 }
