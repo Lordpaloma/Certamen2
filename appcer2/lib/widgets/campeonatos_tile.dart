@@ -65,7 +65,8 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CampeonatoDetalle(
+                  builder: (context) 
+                  => CampeonatoDetalle(
                     id: widget.id,
                     //nombre: widget.nombre,
                     //juego: widget.juego,
