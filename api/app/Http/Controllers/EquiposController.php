@@ -12,7 +12,7 @@ class EquiposController extends Controller
      */
     public function index()
     {
-        $equipos= Equipo::Orderby('nombre')->get();
+        $equipos= Equipo::all()->load('jugadores')->makeHidden('jugadores_id');
         return $equipos;
     }
 
