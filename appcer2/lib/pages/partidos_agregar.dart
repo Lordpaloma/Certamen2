@@ -98,9 +98,11 @@ class _PartidosAgregarState extends State<PartidosAgregar> {
                     if (respuesta['message'] != null) {
                       var errores = respuesta['errors'];
                       setState(() {
-                        errcampeonatoid = errores['campeonatoid'] != null
-                            ? errores['campeonatoid'][0]
+                        errcampeonatoid = errores['campeonato_id'] != null
+                            ? errores['campeonato_id'][0]
                             : '';
+                        errfecha =
+                            errores['fecha'] != null ? errores['fecha'][0] : ''; 
                       });
                       print(errcampeonatoid);
                     } else {

@@ -18,7 +18,7 @@ class HttpService {
   }
 
   Future<List<dynamic>> partidos() async {
-    return listarDatos('partidos');
+    return listarDatos('Partidos');
   }
 
     Future<List<dynamic>> reglas() async {
@@ -98,8 +98,8 @@ class HttpService {
         'Accept': 'application/json'
       },
       body: json.encode(<String, dynamic>{
-        'nombre': campeonato_id,
-        'acronimo': fecha,
+        'campeonato_id': campeonato_id,
+        'fecha': fecha,
       }),
     );
     return json.decode(respuesta.body);

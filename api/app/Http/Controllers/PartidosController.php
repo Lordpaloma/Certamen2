@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PartidoRequest;
 use App\Models\Partido;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class PartidosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PartidoRequest $request)
     {
         $partidos = new Partido();
         $partidos-> fecha = $request-> fecha;

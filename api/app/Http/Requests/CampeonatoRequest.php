@@ -22,7 +22,7 @@ class CampeonatoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => ['required', 'alpha', 'min:3', 'max:30'],
+            'nombre' => ['required', 'min:3', 'max:30'],
             'pais' => ['required'],
             'juego' => ['required'],
             'fecha' => ['required'],
@@ -33,7 +33,6 @@ class CampeonatoRequest extends FormRequest
     {
         return [
             'nombre.required' => 'Indique el nombre del equipo',
-            'nombre.alpha' => 'El nombre debe solo letras',
             'nombre.min' => 'El nombre debe tener mínimo 3 letras',
             'nombre.max' => 'El nombre debe tener máximo 30 letras',
             'pais.required' => 'Debe indicar país',

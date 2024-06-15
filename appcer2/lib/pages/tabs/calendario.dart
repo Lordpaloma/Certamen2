@@ -11,7 +11,7 @@ class CalendarioTab extends StatefulWidget {
 }
 
 class _CalendarioTabState extends State<CalendarioTab> {
-  final AssetImage fondo = AssetImage('assets/images partidos.jpg');
+  final AssetImage fondo = AssetImage('assets/images/campeonatos.jpg');
 
   @override
   Widget build(BuildContext context) {
@@ -27,22 +27,25 @@ class _CalendarioTabState extends State<CalendarioTab> {
             Expanded(
               child: FutureBuilder(
                 future: HttpService().partidos(),
-                builder: (context, AsyncSnapshot snapshot) {
+                builder: ((context, AsyncSnapshot snapshot) {
                   if (!snapshot.hasData ||
                       snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
                   }
                   return ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (context, index) {
                       var partido = snapshot.data[index];
                       return PartidosTiles(
-                          campeonatoid: partido['campeonato_id'],
-                          fecha: partido['fecha'],
-                          id: partido['id']);
+                        campeonatoid: partido['campeonato_id'],
+                        fecha: partido['fecha'],
+                        id: partido['id'],
+                      );
                     },
                   );
-                },
+                }),
               ),
             ),
           ],
