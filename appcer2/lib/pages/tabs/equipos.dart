@@ -29,7 +29,9 @@ class _EquiposTabState extends State<EquiposTab> {
                   if (!snapshot.hasData ||
                       snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
+
                   }
+                  
                   return ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (context, index) {
@@ -38,6 +40,7 @@ class _EquiposTabState extends State<EquiposTab> {
                         nombre: equipos['nombre'],
                         acronimo: equipos['acronimo'],
                         entrenador: equipos['entrenador'],
+                        id: equipos['id']
                       );
                     },
                   );
