@@ -53,6 +53,10 @@ class _CampeonatosTileState extends State<CampeonatosTile> {
                 'Fecha de inicio: ${widget.fecha}',
                 style: TextStyle(fontSize: 14),
               ),
+              Text(
+                'Id de campeonato: ${widget.id}',
+                style: TextStyle(fontSize: 14),
+              ),
             ],
           ),
           Spacer(),

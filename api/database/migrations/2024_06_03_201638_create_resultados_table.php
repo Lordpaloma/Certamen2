@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('resultados', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('equipo_id');
-            $table->unsignedBigInteger('campeonato_id');
+            $table->unsignedBigInteger('partido_id');
             
             $table->string('detalle');
             $table->foreign('equipo_id')->references('id')->on('equipos');
-            $table->foreign('campeonato_id')->references('id')->on('campeonatos');
+            $table->foreign('partido_id')->references('id')->on('partidos');
             #$table->timestamps();
         });
     }

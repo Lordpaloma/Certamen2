@@ -68,7 +68,6 @@ class _CampeonatoDetalletilesState extends State<CampeonatoDetalletiles> {
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white60),
-                  
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -85,8 +84,7 @@ class _CampeonatoDetalletilesState extends State<CampeonatoDetalletiles> {
                 ),
               ),
               Container(
-                decoration: BoxDecoration(
-                ),
+                decoration: BoxDecoration(),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PartidoRequest;
 use App\Models\Partido;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,8 @@ class PartidosController extends Controller
      */
     public function index()
     {
-        $campeonato = Partido::all();
-        return $campeonato;
+        $partido = Partido::all();
+        return $partido;
     }
 
     /**
@@ -27,9 +28,13 @@ class PartidosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PartidoRequest $request)
     {
-        //
+        $partidos = new Partido();
+        $partidos-> fecha = $request-> fecha;
+        $partidos-> campeonato_id = $request->campeonato_id;
+        $partidos->save();
+        return $partidos;
     }
 
     /**

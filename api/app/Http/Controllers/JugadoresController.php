@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JugadorRequest;
 use App\Models\Jugador;
 use Illuminate\Http\Request;
 
@@ -27,9 +28,14 @@ class JugadoresController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(JugadorRequest $request)
     {
-        
+        $jugadores= new Jugador();
+        $jugadores->nickname=$request->nickname;
+        $jugadores->pais=$request->pais;
+        $jugadores->equipo_id=$request->equipo_id;
+        $jugadores->save();
+        return $jugadores;
     }
 
     /**

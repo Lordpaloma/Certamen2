@@ -34,10 +34,11 @@ class MyApp extends StatelessWidget {
             backgroundColor: Color.fromARGB(255, 3, 2, 30),
             foregroundColor: Color.fromARGB(255, 255, 255, 255),
             centerTitle: true),
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 6, 3, 78)),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 6, 3, 78)),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

@@ -16,4 +16,7 @@ class Equipo extends Model
     public function jugadores(): HasMany{
         return $this->hasMany(Jugador::class);
     }
+    public function Resultado(): HasMany{
+        return $this->hasMany(Resultado::class);
+    }
 }

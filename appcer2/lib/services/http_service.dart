@@ -18,11 +18,14 @@ class HttpService {
   }
 
   Future<List<dynamic>> partidos() async {
-    return listarDatos('partidos');
+    return listarDatos('Partidos');
   }
 
     Future<List<dynamic>> reglas() async {
     return listarDatos('Reglas');
+  }
+    Future<List<dynamic>> resultado() async {
+    return listarDatos('Resultado');
   }
 
   Future<List<dynamic>> listarDatos(String coleccion) async {
@@ -70,7 +73,7 @@ class HttpService {
     String acronimo,
     String entrenador,
   ) async {
-    var url = Uri.parse('$apiUrl/Campeonatos');
+    var url = Uri.parse('$apiUrl/equipos');
     var respuesta = await http.post(
       url,
       headers: <String, String>{
@@ -81,6 +84,45 @@ class HttpService {
         'nombre': nombre,
         'acronimo': acronimo,
         'entrenador': entrenador,
+      }),
+    );
+    return json.decode(respuesta.body);
+  }
+    Future<LinkedHashMap<String, dynamic>> jugadorAgregar(
+    int equipo_id,
+    String nickname,
+    String pais,
+  ) async {
+    var url = Uri.parse('$apiUrl/Jugadores');
+    var respuesta = await http.post(
+      url,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json'
+      },
+      body: json.encode(<String, dynamic>{
+        'nickname': nickname,
+        'pais': pais,
+        'equipo_id': equipo_id,
+      }),
+    );
+    return json.decode(respuesta.body);
+  }
+
+    Future<LinkedHashMap<String, dynamic>> partidosAgregar(
+    int campeonato_id,
+    String fecha,
+  ) async {
+    var url = Uri.parse('$apiUrl/Partidos');
+    var respuesta = await http.post(
+      url,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json'
+      },
+      body: json.encode(<String, dynamic>{
+        'campeonato_id': campeonato_id,
+        'fecha': fecha,
       }),
     );
     return json.decode(respuesta.body);

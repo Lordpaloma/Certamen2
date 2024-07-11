@@ -12,7 +12,7 @@ class ResultadoController extends Controller
      */
     public function index()
     {
-        $resultados = Resultado::all();
+        $resultados = Resultado::all()->load('Equipo')->makeVisible('equipo_id');
         return $resultados;
     }
 
